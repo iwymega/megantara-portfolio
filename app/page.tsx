@@ -1,10 +1,16 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Code,
   Settings,
@@ -22,66 +28,74 @@ import {
   Globe,
   Rocket,
   Heart,
-} from "lucide-react"
-import Link from "next/link"
-import { AnimatedLogo } from "@/components/animated-logo"
-import { FloatingElements } from "@/components/floating-elements"
-import { GradientCard } from "@/components/gradient-card"
-import { AnimatedCounter } from "@/components/animated-counter"
-import { useRef } from "react"
+  Linkedin,
+} from "lucide-react";
+import Link from "next/link";
+import { AnimatedLogo } from "@/components/animated-logo";
+import { FloatingElements } from "@/components/floating-elements";
+import { GradientCard } from "@/components/gradient-card";
+import { AnimatedCounter } from "@/components/animated-counter";
+import { useRef } from "react";
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const heroRef = useRef(null);
 
   const services = [
     {
       icon: <Code className="h-6 w-6" />,
       title: "Pengembangan Website & Aplikasi",
-      description: "Dari website company profile, landing page, hingga sistem berbasis web & mobile.",
+      description:
+        "Dari website company profile, landing page, hingga sistem berbasis web & mobile.",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
       icon: <Settings className="h-6 w-6" />,
       title: "Automasi dan Sistem Internal",
-      description: "Pembuatan sistem custom seperti manajemen stok, absensi, CRM, dan dashboard laporan.",
+      description:
+        "Pembuatan sistem custom seperti manajemen stok, absensi, CRM, dan dashboard laporan.",
       gradient: "from-purple-500 to-pink-500",
     },
     {
       icon: <Palette className="h-6 w-6" />,
       title: "UI/UX Design & Prototyping",
-      description: "Desain antarmuka interaktif yang intuitif dan fokus pada user journey.",
+      description:
+        "Desain antarmuka interaktif yang intuitif dan fokus pada user journey.",
       gradient: "from-green-500 to-teal-500",
     },
     {
       icon: <HeadphonesIcon className="h-6 w-6" />,
       title: "Konsultasi IT & Maintenance",
-      description: "Membantu Anda memilih teknologi terbaik dan memberikan support jangka panjang.",
+      description:
+        "Membantu Anda memilih teknologi terbaik dan memberikan support jangka panjang.",
       gradient: "from-orange-500 to-red-500",
     },
-  ]
+  ];
 
   const portfolio = [
     {
       icon: <BarChart3 className="h-6 w-6" />,
       title: "Sistem Inventory untuk Toko Retail",
-      description: "Aplikasi berbasis web untuk manajemen stok, laporan penjualan, dan data pelanggan.",
+      description:
+        "Aplikasi berbasis web untuk manajemen stok, laporan penjualan, dan data pelanggan.",
       gradient: "from-indigo-500 to-purple-500",
     },
     {
       icon: <Globe className="h-6 w-6" />,
       title: "Landing Page Event Organizer",
-      description: "Desain dan pengembangan halaman promosi dengan CTA konversi tinggi.",
+      description:
+        "Desain dan pengembangan halaman promosi dengan CTA konversi tinggi.",
       gradient: "from-pink-500 to-rose-500",
     },
     {
       icon: <Users className="h-6 w-6" />,
       title: "Dashboard Internal untuk Bisnis",
-      description: "Sistem manajemen booking, dan jadwal berbasis database real-time.",
+      description:
+        "Sistem manajemen booking, dan jadwal berbasis database real-time.",
       gradient: "from-emerald-500 to-teal-500",
     },
-  ]
+  ];
 
   const testimonials = [
     {
@@ -96,7 +110,7 @@ export default function Home() {
       role: "Retail Manager",
       avatar: "👨‍💼",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
@@ -109,7 +123,10 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.05 }}>
+            <motion.div
+              className="flex items-center space-x-3"
+              whileHover={{ scale: 1.05 }}
+            >
               <AnimatedLogo />
               <motion.span
                 className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
@@ -142,7 +159,10 @@ export default function Home() {
                   <Facebook className="h-5 w-5" />
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   asChild
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
@@ -161,7 +181,10 @@ export default function Home() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative py-20 px-4 overflow-hidden">
         <FloatingElements />
-        <motion.div style={{ y }} className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+        <motion.div
+          style={{ y }}
+          className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5"
+        />
 
         <div className="container mx-auto text-center max-w-4xl relative z-10">
           <motion.div
@@ -200,7 +223,11 @@ export default function Home() {
             <motion.span
               className="inline-block"
               animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                delay: 1,
+              }}
             >
               💻
             </motion.span>
@@ -245,7 +272,10 @@ export default function Home() {
                 <Link href="https://wa.me/6285157263378">
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                    transition={{
+                      duration: 2,
+                      repeat: Number.POSITIVE_INFINITY,
+                    }}
                     className="mr-2"
                   >
                     <Phone className="h-5 w-5" />
@@ -343,10 +373,12 @@ export default function Home() {
             />
 
             <p className="text-center text-lg leading-relaxed">
-              Halo! Saya Megantara, seorang Developer dan IT Solution Specialist yang berfokus pada pembuatan sistem
-              digital yang efisien, fleksibel, dan berorientasi pada kebutuhan pengguna. Dengan latar belakang teknis
-              dan pengalaman dalam berbagai proyek, saya siap membantu individu, UMKM, maupun korporasi untuk
-              bertransformasi secara digital.
+              Halo! Saya Megantara, seorang Developer dan IT Solution Specialist
+              yang berfokus pada pembuatan sistem digital yang efisien,
+              fleksibel, dan berorientasi pada kebutuhan pengguna. Dengan latar
+              belakang teknis dan pengalaman dalam berbagai proyek, saya siap
+              membantu individu, UMKM, maupun korporasi untuk bertransformasi
+              secara digital.
             </p>
 
             <motion.p
@@ -361,8 +393,8 @@ export default function Home() {
               }}
             >
               <Heart className="inline-block w-5 h-5 text-red-500 mr-2" />
-              Saya percaya bahwa teknologi bukan hanya soal tools, tetapi soal memecahkan masalah nyata melalui
-              pendekatan yang tepat.
+              Saya percaya bahwa teknologi bukan hanya soal tools, tetapi soal
+              memecahkan masalah nyata melalui pendekatan yang tepat.
             </motion.p>
           </motion.div>
         </div>
@@ -426,7 +458,11 @@ export default function Home() {
                       <motion.span
                         className="text-2xl"
                         animate={{ rotate: [0, 10, -10, 0] }}
-                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: index * 0.5 }}
+                        transition={{
+                          duration: 2,
+                          repeat: Number.POSITIVE_INFINITY,
+                          delay: index * 0.5,
+                        }}
                       >
                         📌
                       </motion.span>
@@ -441,7 +477,9 @@ export default function Home() {
                     <CardTitle className="text-lg">{project.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="relative">
-                    <CardDescription className="text-base">{project.description}</CardDescription>
+                    <CardDescription className="text-base">
+                      {project.description}
+                    </CardDescription>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -454,7 +492,9 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <p className="text-gray-600">(Contoh lainnya tersedia sesuai permintaan)</p>
+            <p className="text-gray-600">
+              (Contoh lainnya tersedia sesuai permintaan)
+            </p>
           </motion.div>
         </div>
       </section>
@@ -508,14 +548,21 @@ export default function Home() {
                       <motion.span
                         className="text-3xl"
                         animate={{ rotate: [0, 10, -10, 0] }}
-                        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+                        transition={{
+                          duration: 3,
+                          repeat: Number.POSITIVE_INFINITY,
+                        }}
                       >
                         {testimonial.avatar}
                       </motion.span>
                     </div>
-                    <blockquote className="text-gray-700 mb-4 italic">"{testimonial.text}"</blockquote>
+                    <blockquote className="text-gray-700 mb-4 italic">
+                      "{testimonial.text}"
+                    </blockquote>
                     <div className="text-sm">
-                      <div className="font-semibold text-gray-900">— {testimonial.author}</div>
+                      <div className="font-semibold text-gray-900">
+                        — {testimonial.author}
+                      </div>
                       <div className="text-gray-500">{testimonial.role}</div>
                     </div>
                   </CardContent>
@@ -570,7 +617,14 @@ export default function Home() {
                 href: "https://facebook.com/iwymega",
                 color: "text-blue-600",
               },
-              { icon: Mail, label: "Email", value: "Available on request", href: "#", color: "text-gray-600" },
+              {
+                icon: Linkedin,
+                label: "LinkedIn",
+                value: "linkedin.com/in/megantara",
+                href: "https://www.linkedin.com/in/i-wayan-megantara-90233117a/",
+                color: "text-blue-800",
+              },
+              // { icon: Mail, label: "Email", value: "Available on request", href: "#", color: "text-gray-600" },
             ].map((contact, index) => (
               <motion.div
                 key={index}
@@ -589,7 +643,10 @@ export default function Home() {
                       <contact.icon className="h-8 w-8" />
                     </motion.div>
                     <p className="font-semibold mb-2">{contact.label}</p>
-                    <Link href={contact.href} className="text-blue-600 hover:underline text-sm">
+                    <Link
+                      href={contact.href}
+                      className="text-blue-600 hover:underline text-sm"
+                    >
                       {contact.value}
                     </Link>
                   </CardContent>
@@ -607,7 +664,11 @@ export default function Home() {
             <motion.div
               className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20"
               animate={{ rotate: [0, 360] }}
-              transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              transition={{
+                duration: 10,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
             />
 
             <motion.p
@@ -628,7 +689,8 @@ export default function Home() {
               >
                 💬
               </motion.span>
-              Ingin diskusi atau butuh solusi digital untuk bisnis Anda? Saya siap bantu!
+              Ingin diskusi atau butuh solusi digital untuk bisnis Anda? Saya
+              siap bantu!
             </motion.p>
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -640,7 +702,10 @@ export default function Home() {
                 <Link href="https://wa.me/6285157263378">
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                    transition={{
+                      duration: 2,
+                      repeat: Number.POSITIVE_INFINITY,
+                    }}
                     className="mr-2"
                   >
                     <Phone className="h-5 w-5" />
@@ -679,7 +744,10 @@ export default function Home() {
 
           <Separator className="mb-8 bg-gray-700" />
 
-          <motion.div className="flex items-center justify-center space-x-2 mb-4" whileHover={{ scale: 1.05 }}>
+          <motion.div
+            className="flex items-center justify-center space-x-2 mb-4"
+            whileHover={{ scale: 1.05 }}
+          >
             <AnimatedLogo />
             <span className="font-bold text-xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Megantara
@@ -701,11 +769,12 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Heart className="w-4 h-4 text-red-500 mr-2" />
-            Dibuat dengan komitmen untuk menghadirkan solusi digital yang berdampak.
+            Dibuat dengan komitmen untuk menghadirkan solusi digital yang
+            berdampak.
             <Rocket className="w-4 h-4 text-blue-400 ml-2" />
           </motion.p>
         </div>
       </motion.footer>
     </div>
-  )
+  );
 }
