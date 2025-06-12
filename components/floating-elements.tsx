@@ -2,8 +2,20 @@
 
 import { motion } from "framer-motion"
 import { Code2, Zap, Sparkles, Cpu, Database, Globe } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export function FloatingElements() {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+  }, [])
+
   const icons = [
     { Icon: Code2, delay: 0 },
     { Icon: Zap, delay: 0.5 },
@@ -13,6 +25,8 @@ export function FloatingElements() {
     { Icon: Globe, delay: 2.5 },
   ]
 
+  if (dimensions.width === 0) return null // hindari render saat SSR
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {icons.map(({ Icon, delay }, index) => (
@@ -20,8 +34,8 @@ export function FloatingElements() {
           key={index}
           className="absolute text-blue-200/30"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: Math.random() * dimensions.width,
+            y: Math.random() * dimensions.height,
             opacity: 0,
           }}
           animate={{
@@ -31,8 +45,8 @@ export function FloatingElements() {
           }}
           transition={{
             duration: 6 + Math.random() * 4,
-            repeat: Number.POSITIVE_INFINITY,
-            delay: delay,
+            repeat: Infinity,
+            delay,
             ease: "easeInOut",
           }}
           style={{
